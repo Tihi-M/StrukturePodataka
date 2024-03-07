@@ -17,6 +17,14 @@ public class Matrice1 {
 		}
 	}
 	
+	public static void tragMatrice(int[][] matrix,int n) {
+		int sum = 0;
+		for(int i = 0;i < n;i++)
+			for(int j = 0;j < n;j++)
+				if(i == j) sum += matrix[i][j];
+		System.out.println("Trag matrice: " + sum);
+	}
+	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Dimenzija matrice:");
@@ -25,5 +33,6 @@ public class Matrice1 {
 		fillMatrix(mat,n);
 		printMatrix(mat,n);
 		tragMatrice(mat,n);
+		sc.close();
 	}
 }
