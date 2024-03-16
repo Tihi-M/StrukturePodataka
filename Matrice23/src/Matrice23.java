@@ -30,8 +30,8 @@ public class Matrice23 {
 		int [][] newPic = new int[newM][newN];
 		int i_=0;
 		int j_=0;
-		for(int i = 0;i <= picture.length-newM;i++) {
-			for(int j = 0;j <= picture[0].length-newN;j++) {
+		for(int i = 0;i <= picture.length-k;i++) {
+			for(int j = 0;j <= picture[0].length-k;j++) {				
 				int el = filterCoveredMatrix(picture,i,j,k);
 				newPic[i_][j_] = el/(k*k);
 				j_++;
