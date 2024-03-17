@@ -1,4 +1,5 @@
 import java.util.Scanner;
+//Umetanje cifre nakon pronadjene
 public class Stringovi5 {
 	public static void umetniCifre(String txt) {
 		String txt2 = new String();
