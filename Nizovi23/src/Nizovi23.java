@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+//dodavanje clana koji fali od 1 do N
 public class Nizovi23 {
 	public static Scanner sc = new Scanner(System.in);
 	
