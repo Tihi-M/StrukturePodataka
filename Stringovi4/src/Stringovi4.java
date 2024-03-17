@@ -1,4 +1,5 @@
 import java.util.Scanner;
+//P nakon parne cifre, N nakon neparne
 public class Stringovi4 {
 	public static void checkOddEvenChars(String txt) {
 		String txt2 = new String();
