@@ -1,4 +1,5 @@
 import java.util.Scanner;
+//validna matrica
 public class Matrice22 {
 	public static Scanner sc = new Scanner(System.in);
 	public static void inputElements(int[][] matrix) {
