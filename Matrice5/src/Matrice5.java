@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+//zmijca
 public class Matrice5 {
 	
 	public static void printMatrix(int[][] matrix,int m,int n) {
