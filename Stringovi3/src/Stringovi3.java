@@ -1,4 +1,5 @@
 import java.util.Scanner;
+//Dodavanje - izmedju samoglasnika
 public class Stringovi3 {
 	public static boolean isVowel(char c) {
 		char[] vowels = {'a','e','i','o','u','A','E','I','O','U'};
