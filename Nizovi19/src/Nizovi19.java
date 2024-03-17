@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+//rotacija niza
 public class Nizovi19 {
 	public static Scanner sc = new Scanner(System.in);
 	public static void fillArr(int[] arr,int len) {
