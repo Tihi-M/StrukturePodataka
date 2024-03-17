@@ -1,6 +1,6 @@
 import java.util.Scanner;
 import java.util.Random;
-
+//zamjena kolona
 public class Matrice12 {
 	public static void printMatrix(int[][] matrix,int n) {
 		for(int i = 0;i < n;i++) {
