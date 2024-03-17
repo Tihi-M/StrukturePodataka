@@ -1,4 +1,5 @@
 import java.util.Scanner;
+//Dodavanje malog slova pored velikog
 public class Stringovi2 {
 	public static void addLowercaseLetter(String txt) {
 		String txt2 = new String();
