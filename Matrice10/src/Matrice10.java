@@ -1,6 +1,6 @@
 import java.util.Scanner;
 import java.util.Random;
-
+//lokalni min
 public class Matrice10 {
 	public static void printMatrix(int[][] mat,int n) {
 		for(int i = 0;i < n;i++) {
