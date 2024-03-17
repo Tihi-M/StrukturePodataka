@@ -1,6 +1,6 @@
 import java.util.Scanner;
 import java.util.Random;
-
+//Vrijednost polinoma, dat nizom
 public class Nizovi17 {
 	public static void fillArr(int[] arr,int len) {
 		Random rnd = new Random();
