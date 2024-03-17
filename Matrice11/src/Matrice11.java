@@ -1,4 +1,5 @@
 import java.util.Scanner;
+//lokalni maximum
 import java.util.Random;
 public class Matrice11 {
 	public static void printMatrix(int[][] matrix,int n) {
