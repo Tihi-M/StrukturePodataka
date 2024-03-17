@@ -1,4 +1,5 @@
 import java.util.Random;
+//rotacija za 90
 import java.util.Scanner;
 public class Matrice15 {
 	public static Scanner sc = new Scanner(System.in);
