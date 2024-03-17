@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+//dodavanje _ izmedju velikih slova
 public class Stringovi1 {
 	public static void addUnderscores(String txt) {
 		String txt2=new String();
