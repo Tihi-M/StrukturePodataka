@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.Random;
 
 public class Matrice19 {
 	public static Scanner sc = new Scanner(System.in);
