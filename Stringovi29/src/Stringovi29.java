@@ -12,7 +12,7 @@ public class Stringovi29 {
 					ind++;
 				}
 				ind +=i;
-				if(foundSub) { System.out.println(ind);return ind;}
+				if(foundSub) return ind;
 			}
 		return -1;
 		
@@ -23,11 +23,8 @@ public class Stringovi29 {
 		int endOfStr1 = findLastIndex(str,str1);
 		while( endOfStr1 != -1 ) {
 				String part1 = newStr.substring(0,endOfStr1-str1.length());
-				System.out.println(part1);
 				String part2 = newStr.substring(endOfStr1,newStr.length());
-				System.out.println(part2);
 				newStr = part1+str2+part2;
-				System.out.println(newStr);
 				endOfStr1 = findLastIndex(newStr,str1);
 		}	
 		return newStr;
