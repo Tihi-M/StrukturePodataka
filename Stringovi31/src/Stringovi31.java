@@ -1,51 +1,70 @@
 import java.util.Scanner;
+
+import javax.xml.stream.util.StreamReaderDelegate;
+
 public class Stringovi31 {
-	public static boolean hasInvalidChars(String str) {
-		str+=' ';
-		for(int i = 0;i < str.length();i++) {
-			if(i == str.length()-1) break;
-			char ch = str.charAt(i);
-			if(Character.isLetter(ch) && Character.isUpperCase(ch)) {System.out.println("!"); return true;}
-			if(!Character.isDigit(ch) && !Character.isLetter(ch) && ch!='_' &&  ch!='-' && ch != '.') {System.out.println("?"+i); return true;}
-			if(ch=='.' && str.charAt(i+1) == '.') {System.out.println("$"); return true;}
+	public static boolean hasInvalidChar(String txt,int part) {
+		for(int i = 0; i < txt.length();i++) {
+			char ch = txt.charAt(i);
+			if(Character.isLetter(ch) && Character.isUpperCase(ch)) return true;
+			if(part == 0) {
+				if(!Character.isLetter(ch) && !Character.isDigit(ch) &&
+						ch != '_' && ch != '-' && ch != '.') return true;
+				if(i != txt.length()-1 && ch == '.' && txt.charAt(i+1) == '.') return true;
+			}
+			else {
+				if(!Character.isLetter(ch) && !Character.isDigit(ch) &&
+						ch != '-' && ch != '.') return true;
+				if(i != txt.length()-1 && ch == '.' && txt.charAt(i+1) == '.') return true;
+				if(!Character.isLetter(txt.charAt(txt.length()-2)) ||
+				   !Character.isLetter(txt.charAt(txt.length()-1))) return true;
+			}
 		}
 		return false;
 	}
 	
-	public static boolean hasLetterOrNum(String str) {
-		boolean hasLetter= false;
-		boolean hasDigit = false;
-		for(int i = 0;i < str.length();i++) {
-			char ch = str.charAt(i);
-			if(Character.isLetter(ch)) hasLetter = true;
-			if(Character.isDigit(ch)) hasDigit = true;
-			if(hasLetter && hasDigit) return true;
+	public static boolean invalidPref(String str) {
+		boolean hasNum=false;
+		boolean hasLetter=false;
+		char first = str.charAt(0);
+		char end = str.charAt(str.length()-1);
+		for(int i = 0; i < str.length();i++) {
+			if(Character.isLetter(str.charAt(i))) {
+				hasLetter = true;
+				break;
+			}
+			if(Character.isDigit(str.charAt(i))) {
+				hasNum = true;
+				break;
+			}
 		}
+		if(!hasNum && !hasLetter) return true;
+		
+		if(!(Character.isDigit(first) || Character.isLetter(first))
+			&&!(Character.isDigit(end) || Character.isLetter(end))) return true;
 		
 		return false;
 	}
 	
-	public static boolean validEmail(String email) {
-		String[] partsOf = email.split("[@]");
-		if(partsOf.length!=2) return false;
-		String prefiks = partsOf[0];
-		String domen = partsOf[1];
+	public static boolean isValid(String email) {
+		String[] splited = email.split("[@]");
+		if(splited.length != 2) return false;
+		String prefiks = splited[0];
+		String domen = splited[1];
 		
-		if(hasInvalidChars(prefiks)) return false;
-		if(!hasLetterOrNum(prefiks)) return false;
-		char chFirst = prefiks.charAt(0);
-		char chEnd = prefiks.charAt(prefiks.length()-1);
-		System.out.println(chFirst+ " "+chEnd);
-		if((Character.isLetter(chFirst) || Character.isDigit(chFirst)) &&
-		   (Character.isLetter(chEnd) || Character.isDigit(chEnd))) {System.out.println("??");  return false;}
+		if(hasInvalidChar(prefiks,0)) return false;
+		if(hasInvalidChar(domen,1)) return false;
+		if(invalidPref(prefiks)) return false;
 		return true;
 	}
+	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Email:");
 		String em = sc.next();
-		if(validEmail(em)) System.out.println("Validan");
+		if(isValid(em)) System.out.println("Validan");
 		else System.out.println("Nije validan");
 		sc.close();
 	}
+	
 }
