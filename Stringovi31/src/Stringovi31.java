@@ -1,7 +1,5 @@
 import java.util.Scanner;
 
-import javax.xml.stream.util.StreamReaderDelegate;
-
 public class Stringovi31 {
 	public static boolean hasInvalidChar(String txt,int part) {
 		for(int i = 0; i < txt.length();i++) {
