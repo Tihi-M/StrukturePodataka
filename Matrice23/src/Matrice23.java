@@ -8,20 +8,20 @@ public class Matrice23 {
 				matrix[i][j] = sc.nextInt();
 	}
 	
-	public static int filterCoveredMatrix(int[][] matrix,int i_,int j_,int k) {
-		int sum = 0;
-		for(int i = i_;i <i_+k;i++)
-			for(int j = j_;j < j_+k;j++)
-				sum += matrix[i][j];
-		return sum;
-	}
-	
 	public static void printMatrix(int[][] matrix) {
 		for(int i = 0;i < matrix.length;i++) {
 			for(int j = 0;j < matrix[0].length;j++)
 				System.out.print(matrix[i][j] + " ");
 			System.out.println();
 		}
+	}
+	
+	public static int filterCoveredMatrix(int[][] matrix,int i_,int j_,int k) {
+		int sum = 0;
+		for(int i = i_;i <i_+k;i++)
+			for(int j = j_;j < j_+k;j++)
+				sum += matrix[i][j];
+		return sum;
 	}
 	
 	public static void filterMatrix(int[][] picture,int k) {
