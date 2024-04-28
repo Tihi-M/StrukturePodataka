@@ -1,4 +1,5 @@
 import java.math.*;
+import java.util.Scanner;
 public class Lista {
 	Cvor glava;
 	
@@ -100,14 +101,78 @@ public class Lista {
 		
 	}
 	
-	public void pronadjiSredinu() {
-		Cvor temp = this.glava;
-		Cvor temp2 = this.glava;
+	public Cvor pronadjiSredinu(Cvor head) {
+		if(head == null)
+			return null;
+		Cvor res = null;
+		Cvor temp = head;
+		Cvor temp2 = head;
 		while(temp2 != null && temp2.next != null) {
+			res = temp;
 			temp=temp.next;
 			temp2 = temp2.next.next;
 		}
-		System.out.println("Srednji el: " + temp.val);
+		return res;
+	}
+	
+	public Cvor merge(Cvor l, Cvor r,boolean b) {
+		Cvor res = new Cvor(0);
+		Cvor temp = res;
+		if(b) {
+			while(l != null && r != null) {
+				if(l.val < r.val) {
+					temp.next = l;
+					l = l.next;
+				}else{
+					temp.next = r;
+					r = r.next;
+				}
+				temp = temp.next;
+			}
+			if(l != null)
+				temp.next = l;
+			
+			if(r != null)
+				temp.next = r;
+			
+			return res.next;
+		}
+		else {
+			while(l != null && r != null) {
+				if(l.val > r.val) {
+					temp.next = l;
+					l = l.next;
+				}else{
+					temp.next = r;
+					r = r.next;
+				}
+				temp = temp.next;
+			}
+			if(l != null)
+				temp.next = l;
+			
+			if(r != null)
+				temp.next = r;
+			
+			return res.next;
+			
+		}
+	}
+	
+	public Cvor mergeSort(Cvor head, boolean b) {
+		if(head == null || head.next == null)
+			return head;
+
+		Cvor left = head;
+		Cvor right = pronadjiSredinu(left);
+		Cvor tmp = right.next;
+		right.next = null;
+		right = tmp;
+		
+		left = this.mergeSort(head,b);
+		right = mergeSort(right,b);
+		
+		return merge(left,right,b);
 	}
 	
 	public void reverseList() {
@@ -151,6 +216,69 @@ public class Lista {
 			curr = curr.next;
 	
 		curr.next = sredina;
+	}
+	
+	public void preuredi2(int x) {
+		Cvor curr = this.glava;
+		Cvor nextC = null;
+		Cvor prev = null;
+		while(curr != null) {
+			if(curr.val>=x) {
+				prev = curr;
+				curr = curr.next;
+			}else {
+				nextC=curr.next;
+				prev.next = nextC;
+				curr.next = this.glava;
+				this.glava = curr;
+				curr = nextC;
+			}
+		}
+	}
+	
+	public Cvor joinList(Cvor head1,Cvor head2) {
+		//head = mergeSort(head,false);
+		//l2.glava = mergeSort(head,false);
+		
+		Cvor res = new Cvor(0);
+		Cvor tmp = res;
+		Cvor tmp1 = head1;
+		Cvor tmp2 = head2;
+		
+		while(tmp1 != null && tmp2 != null) {
+			if(tmp1.val < tmp2.val) {
+				tmp.next = tmp1;
+				tmp1 =tmp1.next;
+			}
+			else {
+				tmp.next = tmp2;
+				tmp2 = tmp2.next;;
+			}
+			tmp = tmp.next;
+		}
+		while(tmp1 != null) {
+			tmp.next = tmp1;
+			tmp = tmp.next;
+			tmp1=tmp1.next;
+		}
+		while(tmp2 != null) {
+			tmp.next = tmp2;
+			tmp = tmp.next;
+			tmp2 = tmp2.next;
+		}
+		return res.next;
+	}
+	
+	public void fillList() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Br clanova:");
+		int brClanova = sc.nextInt();
+		int val;
+		while(brClanova>0) {
+			val = sc.nextInt();
+			dodajNaKraj(val);
+			brClanova--;
+		}
 	}
 	
 	public void printList() {
