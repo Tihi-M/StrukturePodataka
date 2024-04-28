@@ -1,4 +1,4 @@
-
+import java.math.*;
 public class Lista {
 	Cvor glava;
 	
@@ -69,7 +69,7 @@ public class Lista {
 		while(temp != null) {
 			if(tempK == 0) {
 				Cvor novi = new Cvor(v);
-				novi.next = temp.next;
+				novi.next = temp;
 				prev.next = novi;
 				temp = novi.next;
 				tempK = k;
@@ -80,6 +80,77 @@ public class Lista {
 				temp = temp.next;
 			}
 		}
+	}
+	
+	public void obrisi(int d, int k) {
+		Cvor temp = this.glava;
+		Cvor prev = null;
+		while(temp != null) {
+			if(Math.abs(temp.val-d) < k) {
+				if(prev == null) 
+					this.glava = this.glava.next;
+				else prev.next = temp.next;
+				temp = temp.next;
+			}
+			else {
+				prev = temp;
+				temp = temp.next;
+			}
+		}
+		
+	}
+	
+	public void pronadjiSredinu() {
+		Cvor temp = this.glava;
+		Cvor temp2 = this.glava;
+		while(temp2 != null && temp2.next != null) {
+			temp=temp.next;
+			temp2 = temp2.next.next;
+		}
+		System.out.println("Srednji el: " + temp.val);
+	}
+	
+	public void reverseList() {
+		Cvor nextC = null;
+		Cvor prev = null;
+		Cvor curr = this.glava;
+		while(curr != null) {
+			nextC = curr.next;
+			curr.next = prev;
+			prev = curr;
+			curr =nextC;
+		}
+		this.glava = prev;
+	}
+	
+	public void preuredi1(int k) {
+		int k2 = 1;
+		Cvor temp = this.glava;
+		while(k2 < k) {
+			temp = temp.next;
+			k2++;
+		}
+		
+		Cvor sredina = temp.next;
+		temp.next = null;
+		
+		Cvor nextC = null;
+		Cvor prev = null;
+		Cvor curr = this.glava;
+		while(curr != null) {
+			nextC = curr.next;
+			curr.next = prev;
+			prev = curr;
+			curr =nextC;
+		}
+
+		this.glava = prev;
+		curr = this.glava;
+
+		while(curr.next != null)
+			curr = curr.next;
+	
+		curr.next = sredina;
 	}
 	
 	public void printList() {

@@ -15,7 +15,11 @@ public class Test {
 		//l1.dodaj1();
 		//l1.dodaj2(2);
 		//l1.dodaj3(3, 7);
-		l1.dodaj4(2, 0);
+		//l1.dodaj4(2, 0);
+		//l1.obrisi(2, 3)
+		//l1.pronadjiSredinu();
+		//l1.reverseList();
+		l1.preuredi1(3);
 		l1.printList();
 		sc.close();
 	}
