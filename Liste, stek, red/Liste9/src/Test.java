@@ -18,6 +18,8 @@ public class Test {
 		//al1.dodajSlicicuKraj(s0);
 		//al1.dodajSlicicuKraj(s0);
 		al1.dodajSlicicuKraj(s1);
+		Slicica s10 = new Slicica("Luka Popovic","Crna Gora",10);
+		al1.dodajSlicicuKraj(s10);
 		//al1.dodajSlicicuKraj(s3);
 		al1.dodajSlicicuKraj(s2);
 		al1.sortirajAlbum();
