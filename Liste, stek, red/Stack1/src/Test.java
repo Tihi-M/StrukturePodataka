@@ -10,7 +10,6 @@ public class Test {
 			s.push(input);
 			input = sc.next();
 		}
-		
 		while(!s.empty())
 			System.out.println(s.pop());
 		
