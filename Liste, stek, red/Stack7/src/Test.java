@@ -19,7 +19,7 @@ public class Test {
 				el = s.pop();
 				
 				while(el < next) {
-					System.out.println(next + " > " + el);
+					System.out.println(next + "  " + el);
 					if(s.isEmpty())
 						break;
 					else
@@ -47,8 +47,6 @@ public class Test {
 		int arr[] = new int[len];
 		fillArr(arr);
 		printNextGreater(arr);
-		
-		
-		
+		sc.close();
 	}
 }
